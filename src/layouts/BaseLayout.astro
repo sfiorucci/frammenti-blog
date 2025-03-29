@@ -2,6 +2,8 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import '../styles/player.css';
+
 const { title } = Astro.props;
 ---
 
@@ -14,6 +16,21 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Parole & Musica | {title}</title>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="../scripts/player.js"></script>
+    <script>
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '360',
+          width: '640',
+          videoId: '9kWgvEKIo4c',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+  </script>
 	</head>
 	<body>
 		<Header />
@@ -22,6 +39,8 @@ const { title } = Astro.props;
 		<Footer />
 		<script>
 			import "../scripts/menu.js";
+      import "../scripts/player.js";
+      import "https://www.youtube.com/iframe_api"
 		</script>
 	</body>
 </html>

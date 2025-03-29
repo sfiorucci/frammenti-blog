@@ -1,0 +1,18 @@
+---
+import Social from './Social.astro';
+---
+
+<footer>
+  <p>Parole & Musica &copy; 2006 &#8594; <script type="text/javascript">var year = new Date();document.write(year.getFullYear());</script></p>
+  <Social platform="twitter" url="https://twitter.com/spineless_laugh" />
+  <Social platform="email" url="mailto:info@spineless.it" />
+  <Social platform="rss" url="/rss.xml" />
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>

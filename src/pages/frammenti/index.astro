@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPostItem from '../../components/BlogPostItem.astro';
+const allPosts = Object.values(import.meta.glob('./*.md', { eager: true }));
+const title = "Tutti i frammenti";
+---
+
+<BaseLayout title={title}>
+	<ul>
+		{allPosts.map((post: any) => <BlogPostItem url={post.url} title={post.frontmatter.intro.name} />)}
+	</ul>
+</BaseLayout>

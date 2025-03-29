@@ -1,0 +1,42 @@
+---
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
+---
+<BaseLayout title={frontmatter.intro.name}>
+  <h2>Frammento di {frontmatter.intro.kind}</h2>
+  <h3>{frontmatter.intro.qualifier}</h3>
+  <p>Pubblicato il {frontmatter.prettyDate}</p>
+  <slot />
+  <h2>Parole</h2>
+  <div class="tags">
+    {frontmatter.tags.map((tag: string) => (
+      <p class="tag"><a href={`/parole/${tag}`}>{tag}</a></p>
+    ))}
+  </div>
+  <h2>Musica</h2>
+  <div class="tags">
+    {frontmatter.artists.map((sound: string) => (
+      <p class="tag"><a href={`/musica/${sound}`}>{sound}</a></p>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  a {
+    color: #00539F;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: #F8FCFD;
+  }
+</style>

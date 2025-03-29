@@ -1,22 +1,8 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = "Di cosa si tratta";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Parole & Musica | Di cosa si tratta</title>
-	</head>
-	<body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
-    
-		<h1>Di cosa si tratta</h1>
-    <p>Frammenti inconsapevoli, pagine di ricordi strappati, immagini rimaste impresse nella retina, melodie ricorrenti e diarismi inutili. Parole povere, flash innocui e pensieri campionati: tutti, involontariamente, perduti. Nessun riferimento a persone realmente esistenti o fatti realmente accaduti: proprio come nei film, solo che questi son pezzi di vita incapaci di ingoiare pezzi di musica, pezzi di qualcosa che non si riescono a ricomporre, perchè manca il finale, e non torna mai niente.</p>
-</body>
-	</body>
-</html>
+<BaseLayout title={title}>
+  <p>Frammenti inconsapevoli, pagine di ricordi strappati, immagini rimaste impresse nella retina, melodie ricorrenti e diarismi inutili. Parole povere, flash innocui e pensieri campionati: tutti, involontariamente, perduti. Nessun riferimento a persone realmente esistenti o fatti realmente accaduti: proprio come nei film, solo che questi son pezzi di vita incapaci di ingoiare pezzi di musica, pezzi di qualcosa che non si riescono a ricomporre, perchè manca il finale, e non torna mai niente.</p>
+</BaseLayout>

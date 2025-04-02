@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import AudioPlayer from '../components/AudioPlayer.astro';
 const { frontmatter } = Astro.props;
 ---
 <BaseLayout title={frontmatter.intro.name}>
@@ -7,6 +8,8 @@ const { frontmatter } = Astro.props;
   <h3>{frontmatter.intro.qualifier}</h3>
   <p>Pubblicato il {frontmatter.prettyDate}</p>
   <slot />
+  <p>Play {frontmatter.song.youTubeId}</p>
+  {frontmatter.song.youTubeId && <AudioPlayer youTubeId={frontmatter.song.youTubeId} />}
   <h2>Parole</h2>
   <div class="tags">
     {frontmatter.tags.map((tag: string) => (

@@ -1,0 +1,30 @@
+---
+const { youTubeId } = Astro.props;
+---
+
+<media-controller audio>
+  <youtube-video
+    src=`https://www.youtube.com/watch?v=${youTubeId}`
+    slot="media"
+    crossorigin
+  ></youtube-video>
+  <media-control-bar>
+    <media-play-button></media-play-button>
+    <media-seek-backward-button></media-seek-backward-button>
+    <media-seek-forward-button ></media-seek-forward-button>
+    <media-time-range></media-time-range>
+    <media-time-display showduration remaining></media-time-display>
+    <media-playback-rate-button></media-playback-rate-button>
+    <media-mute-button></media-mute-button>
+    <media-volume-range></media-volume-range>
+  </media-control-bar>
+</media-controller>
+
+<style>
+  media-controller, media-control-bar {
+    width: 100%;
+  }
+  media-volume-range {
+    padding-right: 10px;
+  }
+</style>

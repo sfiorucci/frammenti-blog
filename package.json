@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",
+    "@tailwindcss/vite": "^4.1.1",
     "astro": "^5.5.5",
     "media-chrome": "^4.9.0",
+    "tailwindcss": "^4.1.1",
     "youtube-video-element": "^1.5.1"
   }
 }

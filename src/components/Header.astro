@@ -1,10 +1,14 @@
 ---
-import Hamburger from './Hamburger.astro';
-import Navigation from './Navigation.astro';
+const { pageTitle, abstract } = Astro.props;
 ---
-<header>
-  <nav>
-    <Hamburger />
-    <Navigation />
-  </nav>
+<!-- Sticky Title -->
+<div class="sticky top-0 bg-white h-52 pt-14 z-10 text-center">
+  <h1 class="font-gloock text-8xl font-bold"><a href="/">Parole & Musica</a></h1>
+</div>
+
+<!-- Header with Subtitle -->
+<header class="bg-white mx-auto text-center">
+  {pageTitle && <h2 class="text-3xl font-bold">{pageTitle}</h2>}
+  {abstract && <p class="font-serif text-2xl  max-w-7xl text-zinc-700 mx-auto px-4 pb-14">{abstract}</p>}
 </header>
+<div class="sticky top-52 bg-white mx-auto text-center border-b border-zinc-300"></div>

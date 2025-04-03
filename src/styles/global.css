@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@theme {
+  --font-gloock: "Gloock", serif;
+  --font-serif: "Lora", serif;
+  --font-sans: "DM Sans", sans-serif;
+}
+
+@layer base {
+  p {
+    @apply font-serif text-xl text-zinc-900 leading-7 pb-4;
+  }
+}

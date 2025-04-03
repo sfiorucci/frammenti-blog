@@ -1,25 +1,32 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import AudioPlayer from '../components/AudioPlayer.astro';
+import Quote from '../components/Quote.astro';
 const { frontmatter } = Astro.props;
 ---
-<BaseLayout title={frontmatter.intro.name}>
-  <h2>Frammento di {frontmatter.intro.kind}</h2>
-  <h3>{frontmatter.intro.qualifier}</h3>
-  <p>Pubblicato il {frontmatter.prettyDate}</p>
-  <slot />
-  <p>Play {frontmatter.song.youTubeId}</p>
-  {frontmatter.song.youTubeId && <AudioPlayer youTubeId={frontmatter.song.youTubeId} />}
-  <h2>Parole</h2>
-  <div>
-    {frontmatter.tags.map((tag: string) => (
-      <p><a href={`/parole/${tag}`}>{tag}</a></p>
-    ))}
-  </div>
-  <h2>Musica</h2>
-  <div>
-    {frontmatter.artists.map((sound: string) => (
-      <p><a href={`/musica/${sound}`}>{sound}</a></p>
-    ))}
-  </div>
+<BaseLayout title={frontmatter.intro.name} abstract={frontmatter.description}>
+  <article class="max-w-3xl mx-auto mt-14">
+    <div class="pb-10">
+      <p class="font-sans text-base font-semibold tracking-wider uppercase text-zinc-300 pb-4">{frontmatter.prettyDate}</p>
+      <h2 class="font-gloock font-bold text-5xl pb-4">{frontmatter.intro.name}</h1>
+      <h3 class="font-sans text-2xl tracking-wide text-zinc-700">Frammento di {frontmatter.intro.kind} ({frontmatter.intro.qualifier})</h2>
+    </div>
+    <slot />
+    <div class="py-10">
+      {frontmatter.song.quote && <Quote quote={frontmatter.song.quote} artist={frontmatter.song.artist} song={frontmatter.song.title} />}
+      {frontmatter.song.youTubeId && <AudioPlayer youTubeId={frontmatter.song.youTubeId} />}
+    </div>
+    <h2>Parole</h2>
+    <div>
+      {frontmatter.tags.map((tag: string) => (
+        <p><a href={`/parole/${tag}`}>{tag}</a></p>
+      ))}
+    </div>
+    <h2>Musica</h2>
+    <div>
+      {frontmatter.artists.map((sound: string) => (
+        <p><a href={`/musica/${sound}`}>{sound}</a></p>
+      ))}
+    </div>
+  </article>
 </BaseLayout>

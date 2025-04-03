@@ -3,30 +3,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const allPosts = Object.values(import.meta.glob('../frammenti/*.md', { eager: true }));
 const artists = [...new Set(allPosts.map((post: any) => post.frontmatter.artists).flat().sort())];
 const title = "Cerca per band/artista";
+const pageTitle = "Tutta la musica";
+const abstract = "Cerca i frammenti per band/artista. Le parole sono raggruppate in base alla band o all'artista che ha composto la canzone associata. Clicca su una nome per visualizzare i frammenti associati.";
 ---
-<BaseLayout title={title}>
+<BaseLayout 
+  title={title}
+  abstract={abstract}
+  pageTitle={pageTitle}
+>
   <div class="tags">
     {artists.map((artist) => (
       <p class="tag"><a href={`/musica/${artist}`}>{artist}</a></p>
     ))}
   </div>
 </BaseLayout>
-<style>
-  a {
-    color: #00539F;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: #F8FCFD;
-  }
-</style>

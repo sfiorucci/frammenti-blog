@@ -2,29 +2,38 @@
 const { youTubeId } = Astro.props;
 ---
 
-<media-controller audio>
+<media-controller 
+  audio 
+  style="--media-background-color: transparent; --media-control-background: transparent; --media-control-hover-background: transparent;"
+  class="w-full px-4 py-2 bg-zinc-900">
   <youtube-video
     src=`https://www.youtube.com/watch?v=${youTubeId}`
     slot="media"
     crossorigin
   ></youtube-video>
-  <media-control-bar>
-    <media-play-button></media-play-button>
-    <media-seek-backward-button></media-seek-backward-button>
-    <media-seek-forward-button ></media-seek-forward-button>
-    <media-time-range></media-time-range>
-    <media-time-display showduration remaining></media-time-display>
-    <media-playback-rate-button></media-playback-rate-button>
-    <media-mute-button></media-mute-button>
-    <media-volume-range></media-volume-range>
+  <media-control-bar 
+    style="--media-primary-color: oklch(96.7% 0.001 286.375)"
+    class="w-full bg-zinc-900">
+    <media-play-button class="pr-4"></media-play-button>
+    <media-seek-backward-button seekoffset="10" class="pr-2"></media-seek-backward-button>
+    <media-seek-forward-button seekoffset="10"></media-seek-forward-button>
+    <media-time-range 
+      style="--media-time-range-buffered-color: oklch(55.2% 0.016 285.938); --media-range-bar-color: oklch(96.7% 0.001 286.375);  --media-range-track-height: 0.5rem; --media-range-thumb-background: oklch(96.7% 0.001 286.375); --media-range-thumb-box-shadow: 0 0 0 1px oklch(96.7% 0.001 286.375); --media-range-thumb-width: 1rem; --media-range-thumb-height: 1rem; --media-preview-time-text-shadow: transparent;"
+      class="px-4">
+    </media-time-range>
+    <media-time-display showduration class="font-sans"></media-time-display>
+    <media-mute-button class="pl-4 pr-2"></media-mute-button>
+    <media-volume-range
+      style="--media-range-bar-color: oklch(96.7% 0.001 286.375);  --media-range-track-height: 0.3rem; --media-range-thumb-background: oklch(96.7% 0.001 286.375); --media-range-thumb-box-shadow: 0 0 0 1px oklch(96.7% 0.001 286.375); --media-range-thumb-width: 0.75rem; --media-range-thumb-height: 0.75rem;">
+    </media-volume-range>
   </media-control-bar>
 </media-controller>
 
-<style>
+<!-- <style>
   media-controller, media-control-bar {
     width: 100%;
   }
   media-volume-range {
     padding-right: 10px;
   }
-</style>
+</style> -->

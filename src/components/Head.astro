@@ -1,0 +1,24 @@
+---
+const { title } = Astro.props;
+---
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Parole & Musica | {title}</title>
+  <meta name="author" content="Spineless Laugh">
+  <meta name="keywords" content="blog, musica, letteratura, parole, frammenti, scrittura, poesia, arte" />
+  <meta name='language' content="IT">
+  <meta name='robots' content="index,follow">
+  <meta name='medium' content="blog">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate" type="application/rss+xml" title="Parole & Musica" href={new URL("rss.xml", Astro.site)}
+  />
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Gloock&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  
+  
+</head>
